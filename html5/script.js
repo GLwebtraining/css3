@@ -1,4 +1,3 @@
-
 var App = {
 	defaults: {
 		width: 5,
@@ -10,88 +9,87 @@ var App = {
 		App.define();
 	},
 	define: function () {
-		App.playerHolder = document.querySelector('.player');
-		App.player = App.playerHolder.querySelector('video');
-		App.playerStyles = App.playerHolder.querySelector('.styles');
-		App.playerHandle = App.playerHolder.querySelector('.handle');
+		App.playerHolder = jQuery('.player').eq(0);
+		App.player = App.playerHolder.find('video');
+		App.playerStyles = App.playerHolder.find('.styles');
+		App.playerHandle = App.playerHolder.find('.handle');
 
-		App.playerStyles.borderWidth = App.playerStyles.querySelector('.border-width');
-		App.playerStyles.borderColor = App.playerStyles.querySelector('.border-color');
-		App.playerStyles.showHide = App.playerStyles.querySelector('.player-show-hide');
-		App.playerStyles.pullLeft = App.playerStyles.querySelector('.player-pull-left');
-		App.playerStyles.pullRight = App.playerStyles.querySelector('.player-pull-right');
-		App.playerStyles.reset = App.playerStyles.querySelector('.reset');
+		App.playerStyles.borderWidth = App.playerStyles.find('.border-width');
+		App.playerStyles.borderColor = App.playerStyles.find('.border-color');
+		App.playerStyles.showHide = App.playerStyles.find('.player-show-hide');
+		App.playerStyles.pullLeft = App.playerStyles.find('.player-pull-left');
+		App.playerStyles.pullRight = App.playerStyles.find('.player-pull-right');
+		App.playerStyles.reset = App.playerStyles.find('.reset');
 
-		App.playerHandle.playStop = App.playerHandle.querySelector('.player-play-pause');
-		App.playerHandle.stop = App.playerHandle.querySelector('.player-stop');
-		App.playerHandle.jump = App.playerHandle.querySelector('.player-jump');
+		App.playerHandle.playStop = App.playerHandle.find('.player-play-pause');
+		App.playerHandle.stop = App.playerHandle.find('.player-stop');
+		App.playerHandle.jump = App.playerHandle.find('.player-jump');
 
-		App.playerStyles.borderWidth.onclick = function(){
-			var w = App.defaults.width;
-			return function(){
-				w--;
-				if(w <= 0) w = App.defaults.width;
-				App.changeCss({borderWidth: w + 'px'});
-			};
-		}();
 
-		App.playerStyles.borderColor.onclick = function(){
-			var t = 0,
-				c = App.defaults.color[t],
-				l = App.defaults.color.length;
+		var w = App.defaults.width,
+		    	t = 0;
 
-			return function(){
-				t++;
-				if(t >= l) t = 0;
-				c = App.defaults.color[t];
-				App.changeCss({borderColor: c});
-			};
-		}();
+		App.playerStyles.borderWidth.click(function(){
+			w--;
+			if(w <= 0) w = App.defaults.width;
+			App.player.css({borderWidth: w});
+			return false;
+		});
 
-		App.playerStyles.showHide.onclick = function(){
-			App.changeCss({display: (App.defaults.visibility ? 'none' : 'block')});
-			App.defaults.visibility = !App.defaults.visibility;
-			App.playerStyles.showHide.innerHTML = (App.defaults.visibility ? 'Hide' : 'Show');
-		};
+		App.playerStyles.borderColor.click(function(){
+			var c = App.defaults.color[t],
+			l = App.defaults.color.length;
 
-		App.playerStyles.pullLeft.onclick = function(){
-			App.changeCss({float: 'left'});
-		};
+			t++;
+			if(t >= l) t = 0;
+			App.player.css({borderColor: App.defaults.color[t]});
+			return false
+		});
 
-		App.playerStyles.pullRight.onclick = function(){
-			App.changeCss({float: 'right'});
-		};
+		App.playerStyles.showHide.click(function(){
+			App.playerStyles.showHide.text( App.player.toggle().is(':visible') ? 'Hide' : 'Show');
+			return false
+		});
 
-		App.playerStyles.reset.onclick = function(){
-			App.player.removeAttribute('style');
-		};
+		App.playerStyles.pullLeft.click(function(){
+			App.player.css({float: 'left'});
+			return false
+		});
 
-		App.playerHandle.playStop.onclick = App.playing;
-		App.playerHandle.jump.onclick = App.jumping;
-		App.playerHandle.stop.onclick = App.stop;
-	},
-	changeCss: function(style){
-		for(var key in style){
-			App.player.style[key] = style[key];
-		}
+		App.playerStyles.pullRight.click(function(){
+			App.player.css({float: 'right'});
+			return false
+		});
+
+		App.playerStyles.reset.click(function(){
+			App.player.attr('style','');
+			return false
+		});
+
+		App.playerHandle.playStop.click(App.playing);
+		App.playerHandle.jump.click(App.jumping);
+		App.playerHandle.stop.click(App.stop);
 	},
 	playing: function(){
-		if(App.player.paused){
-			App.player.play();
-			App.playerHandle.playStop.innerHTML = 'Pause';
+		if(App.player[0].paused){
+			App.player[0].play();
+			App.playerHandle.playStop.text('Pause');
 		}
 		else{
-			App.player.pause();
-			App.playerHandle.playStop.innerHTML = 'Play';
+			App.player[0].pause();
+			App.playerHandle.playStop.text('Play');
 		}
+		return false
 	},
 	jumping: function(){
-		App.player.currentTime += 5;
+		App.player[0].currentTime += 5;
+		return false
 	},
 	stop: function(){
-		if(!App.player.paused) App.playing();
-		App.player.currentTime = 0;
+		if(!App.player[0].paused) App.playing();
+		App.player[0].currentTime = 0;		
+		return false
 	}
 };
 
-document.addEventListener('DOMContentLoaded', App.initialize, false);
+jQuery(App.initialize);
