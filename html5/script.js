@@ -7,6 +7,14 @@ var App = {
 	},
 	initialize: function () {
 		App.define();
+		jQuery('#load-ajax-text').click(function(){
+			jQuery.ajax({
+				url: 'welike.com.ua/simple.php',
+				success: function(data){
+					alert(data);
+				}
+			});
+		});
 	},
 	define: function () {
 		App.playerHolder = jQuery('.player').eq(0);
