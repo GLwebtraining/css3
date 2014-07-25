@@ -9,7 +9,7 @@ var App = {
 		App.define();
 		jQuery('#load-ajax-text').click(function(){
 			jQuery.ajax({
-				url: 'welike.com.ua/simple.php',
+				url: 'http://welike.com.ua/simple.php',
 				success: function(data){
 					alert(data);
 				}
