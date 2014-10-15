@@ -1,0 +1,120 @@
+﻿[
+	{
+		"name": "data types",
+		"templateUrl": "dataTypes/main",
+		"topics": [
+			{
+				"name": "basic types",
+				"templateUrl": "dataTypes/basic",
+				"topics": [
+					{
+						"name": "number",
+						"templateUrl": "dataTypes/number" 
+					},
+					{
+						"name": "string",
+						"templateUrl": "dataTypes/string" 
+					},
+					{
+						"name": "boolean",
+						"templateUrl": "dataTypes/boolean" 
+					}
+				]	
+			},
+			{
+				"name": "null and undefined",
+				"templateUrl": "datatypes/nullundef"
+			},
+			{
+				"name": "special types",
+				"templateUrl": "datatypes/special",
+				"topics": [
+					{
+						"name": "object",
+						"templateUrl": "datatypes/object"
+					},
+					{
+						"name": "array",
+						"templateUrl": "datatypes/array"
+					}
+				]
+			},
+			{
+				"name": "special object types",
+				"templateUrl": "datatypes/specialobject",
+				"topics": [
+					{
+						"name": "function",
+						"templateUrl": "datatypes/function"
+					},
+					{
+						"name": "class Date",
+						"templateUrl": "datatypes/date"
+					},
+					{
+						"name": "class RegExp",
+						"templateUrl": "datatypes/regexp"
+					},
+					{
+						"name": "class Error",
+						"templateUrl": "datatypes/error"
+					}
+				]
+			}
+		]
+	},
+	{
+		"name": "variable",
+		"templateUrl": "var/main",
+		"topics": [
+			{
+				"name": "declaring",
+				"templateUrl": "var/declare"
+			},
+			{
+				"name": "scope",
+				"templateUrl": "var/scope"
+			}
+		]
+	},
+	{
+		"name": "array",
+		"templateUrl": "array/main",
+		"topics": [
+			{
+				"name": "Array functions",
+				"templateUrl": "array/function"
+			},
+			{
+				"name": "Array functions ES5",
+				"templateUrl": "array/functiones5"
+			}
+		]
+	},
+	{
+		"name": "object",
+		"templateUrl": "object/main",
+		"topics": [
+			{
+				"name": "creation",
+				"templateUrl": "object/create"
+			},
+			{
+				"name": "properties",
+				"templateUrl": "object/properties"
+			},
+			{
+				"name": "common properties and methods",
+				"templateUrl": "object/common"
+			}
+		]
+	},
+	{
+		"name": "JSON",
+		"templateUrl": "object/json"
+	},
+	{
+		"name": "DOM and BOM",
+		"templateUrl": "dombom/main"
+	}
+]
