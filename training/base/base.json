@@ -23,41 +23,41 @@
 			},
 			{
 				"name": "null and undefined",
-				"templateUrl": "datatypes/nullundef"
+				"templateUrl": "dataTypes/nullundef"
 			},
 			{
 				"name": "special types",
-				"templateUrl": "datatypes/special",
+				"templateUrl": "dataTypes/special",
 				"topics": [
 					{
 						"name": "object",
-						"templateUrl": "datatypes/object"
+						"templateUrl": "dataTypes/object"
 					},
 					{
 						"name": "array",
-						"templateUrl": "datatypes/array"
+						"templateUrl": "dataTypes/array"
 					}
 				]
 			},
 			{
 				"name": "special object types",
-				"templateUrl": "datatypes/specialobject",
+				"templateUrl": "dataTypes/specialobject",
 				"topics": [
 					{
 						"name": "function",
-						"templateUrl": "datatypes/function"
+						"templateUrl": "dataTypes/function"
 					},
 					{
 						"name": "class Date",
-						"templateUrl": "datatypes/date"
+						"templateUrl": "dataTypes/date"
 					},
 					{
 						"name": "class RegExp",
-						"templateUrl": "datatypes/regexp"
+						"templateUrl": "dataTypes/regexp"
 					},
 					{
 						"name": "class Error",
-						"templateUrl": "datatypes/error"
+						"templateUrl": "dataTypes/error"
 					}
 				]
 			}
